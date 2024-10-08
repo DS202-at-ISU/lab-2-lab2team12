@@ -1,6 +1,6 @@
 DS 202 - Lab \#2
 ================
-Ananya Ramji
+Ananya Ramji, Nathan Cole
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
