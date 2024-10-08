@@ -114,4 +114,5 @@ ggplot(data = ames, aes(x = Bedrooms, y = `Acres`)) +
        x = "Acres",
        y = "Sale Price") 
 ```
+SCATTERPLOT
 
