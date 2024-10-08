@@ -193,3 +193,6 @@ ggplot(data = ames, aes(x = Bedrooms, y = `Acres`)) +
        y = "Sale Price") 
 ```
 SCATTERPLOT
+
+
+Nathan Cole - The graph is unimodal and roughly symmetric so there is little reason to believe there is a correlation between acres and Sale price.
