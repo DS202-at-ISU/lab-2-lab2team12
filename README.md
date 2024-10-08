@@ -184,3 +184,12 @@ SCATTERPLOT
 Most of the homes are sold for below \$200000 regardless of the number
 of bedrooms. There is no relation between number of bedrooms and sale
 price for the outliers shown above.
+
+```{r NathanGraph}
+ggplot(data = ames, aes(x = Bedrooms, y = `Acres`)) +
+  geom_point() +
+  labs(title = "Relationship Between Acres and Sale Price",
+       x = "Acres",
+       y = "Sale Price") 
+```
+SCATTERPLOT
