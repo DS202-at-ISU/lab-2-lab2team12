@@ -1,8 +1,11 @@
 ---
+title: 'DS 202 - Lab #2'
+author: "Ananya Ramji"
 output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
+
 
 
 ```{r setup, include=FALSE}
@@ -17,3 +20,92 @@ Include your answers in this document (Rmd file). Make sure that it knits proper
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed.
 Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
+
+```{r, message = FALSE}
+#install.packages("classdata")
+library(classdata) 
+data(ames)
+```
+
+```{r}
+head(ames)
+```
+
+```{r}
+colnames(ames)
+```
+```{r}
+str(ames)
+```
+Here are details for few of the columns.
+
+1. Parcel ID
+
+Type: Character (or categorical)
+Description: A unique identifier for each property.
+Expected Range: 10 digit numbers.
+
+Address
+
+Type: Character (or categorical)
+Description: The physical address of the property.
+Expected Range: any address in Ames.
+
+Style
+
+Type: Character (or categorical)
+Description: The architectural style of the property (e.g., ranch, colonial).
+Expected Range: Various story frames.
+
+2. The variable of interest here is Sale Price.
+
+3. 
+```{r}
+summary(ames$`Sale Price`)
+```
+Range for sale price is 20500000-0 (max-min) = 20500000
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+ggplot(ames, aes(x = `Sale Price`)) + 
+  geom_histogram()
+```
+
+
+Shape: The distribution seems to be right skewed.
+Peaks: There seems to be multiple peaks in the data.
+Common Values: The histogram shows that low sale prices are most commonly represented. 
+Oddities: The histogram indicates that there are very few properties sold at high price points, specifically at $15,000,000 and $20,000,000, as evidenced by the small bars at these intervals.”
+
+```{r}
+range_bedrooms <- range(ames$Bedrooms, na.rm = TRUE)
+print(range_bedrooms)
+```
+
+
+```{r}
+ggplot(ames, aes(x = Bedrooms)) +
+  geom_histogram(fill = "purple") +
+  labs(title = "Distribution of Bedrooms", x = "Number of Bedrooms", y = "Frequency")
+```
+Shape: It seems to be uniformally distributed but skewed a little to the right.
+Common Values: The most frequent number of bedrooms are from 3 to 4.
+Outliers: Few houses have more than 7 bedrooms.
+
+```{r}
+ggplot(data = ames, aes(x = Bedrooms, y = `Sale Price`)) +
+  geom_point() +
+  labs(title = "Relationship Between Bedrooms and Sale Price",
+       x = "Number of Bedrooms",
+       y = "Sale Price") 
+```
+
+SCATTERPLOT
+
+Most of the homes are sold for below $200000 regardless of the number of bedrooms. There is no relation between number of bedrooms and sale price for the outliers shown above. 
+
+
+
